@@ -1,0 +1,21 @@
+Grigore Irina-Domnica
+335CB
+
+					Tema 1 
+					 LFA
+
+
+	Implementare tema:
+
+1. Constructia functiei delta: pentru a construi matricea delta, m-am folosit
+de o lista de prefixe ale pattern-ului (ex: pentru pattern-ul "LFA", lista de 
+prefixe este ['', 'L', 'LF', 'LFA']), pe care ulterior o trimit in metoda
+findNextState(). Aceasta metoda este apelata in getMatrix(), unde pentru fiecare 
+linie din matrice (corespunzatoare fiecarui prefix), parcurg coloanele si adaug pe 
+rand fiecare litera la prefixul curent, apoi il caut in lista de prefixe ale 
+patter-ului gasind astfel starea urmatoare. In cazul in care acesta nu se afla in 
+lista, verific daca un prefix al acestuia se aflla.
+
+2. Printarea solutiei: pentru aceasta m-am folosit de metoda automata_matcher() 
+prezentata la curs, prin care parcurgand string-ul primit ca input, caut toate 
+starile finale in matricea delta, si printez indicii la care am gasit pattern-ul.
