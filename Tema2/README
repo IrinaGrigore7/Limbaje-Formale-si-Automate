@@ -1,0 +1,30 @@
+GRIGORE IRINA-DOMNICA
+335CB
+
+
+								Tema 2
+						Subset Construction
+
+
+	Pentru implementarea acestei teme am pornit de la scheletul de laborator pus la 
+dispozitie in laboratorul 5, la care am adaugat urmatoarele functii:
+- epsilonCLosure(): primeste ca input o stare si returneaza un set ce contine inchiderile
+epsilon ale acesteia. Pentru aceasta ma folosesc de o lista auxiliare in care 
+retin starile pentru care trebuie sa verific daca au tranzitii, la randul lor, pe epsilon.
+- convert_NFA_to_DFA(): primeste ca input un dictionar care are ca si chei starile din
+NFA, iar ca si valori inchiderile epsilon corespunzatoare starilor, si construieste
+DFA cerut in enunt. Reprezentarea initiala a DFA-ului este urmatoarea:
+{('{0}', 'a'): '{0}', ('{0}', 'b'): '{0, 1}', ('{0, 1}', 'a'): '{0, 2}', ('{0, 1}', 'b'): '{0, 1, 2}', 
+('{0, 1, 2}', 'a'): '{0, 2}', ('{0, 1, 2}', 'b'): '{0, 1, 2}', ('{0, 2}', 'a'): '{0}', ('{0, 2}', 'b'): '{0, 1}'} 
+Am ales sa reprezit sub forma de string-uri seturile de stari rezultate din NFA. Constructia
+propriu-zisa a NFA-ului o fac in felul urmator: parcurg o lista de seturi pana cand nu mai am 
+nicio stare catre care sa mai adaug tranzitii; extrag un set din lista, apoi pentru fiecare 
+caracter din alfabet si pentru fiecare stare din setul extras anterior, verific daca 
+exista o tranzitie in NFA, formandu-mi astfel un set auxiliar cu starile urmatoare;
+pentru fiecare stare gasita anterior audaug intr-un alt set inchiderile epsilon ale acestora; 
+daca setul rezultat (care reprezinta o stare in DFA) nu a mai fost gasit se adauga in lista 
+auxiliara de seturi si, de asemenea, in cazul in care contine cel putin o stare finala din NFA, 
+se marcheaza ca si stare finala pentru DFA; in final adaug in dictionar tranzitia gasita.
+- printDFA(): pentru fiecare set reprezentat ca si string, asignez o valoare intreaga si printez
+in fisierul de output numarul de stari, starile finale si tranzitiile pe care le contine
+DFA creat.
