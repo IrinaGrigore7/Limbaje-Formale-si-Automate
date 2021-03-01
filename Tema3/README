@@ -13,7 +13,5 @@ input, mi-am construit nfa-ul (imi construiesc automatele pentru situatiile
 in care am and, or sau star). In main parcurg tranzitiile rezultate si 
 scriu in primul fisier de output nfa-ul rezultat, apoi aplic codul de la
 tema2 pentru a genera dfa-ul corespunzator.
-	Am intampinat o problema la unul dintre teste atunci cand imi construiesc
-dfa-ul.
 
 
